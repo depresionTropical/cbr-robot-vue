@@ -79,7 +79,7 @@ export default {
         "0bW356bMBLk?si=g2xdzMI39DKlwsPt",
         "0msVUCTPIbM?si=FwqxSbSTMfXVZZ_h",
         "AKHcLYFjCGo?si=eldYpEyEPndXnVh9",
-        "8LcQa0EZdGA?si=3EzUfCeFrxkWU3UB",
+        "8LcQa0EZdGA?si=3EzUfCeFrxkWU3UB"
       ],
       currentVideoIndex: 0,
       descripcion: "",
@@ -128,7 +128,7 @@ export default {
             }
           );
 
-          console.log("Respuesta del servidor:", response);
+          //console.log("Respuesta del servidor:", response);
 
           // Verificar la respuesta del servidor (puedes ajustar esto según la respuesta esperada)
           if (response.status === 200) {
@@ -145,6 +145,14 @@ export default {
 
           // Limpiar la descripción después de enviar
           this.descripcion = "";
+          // Verificar si todos los videos han sido vistos
+          if (this.currentVideoIndex === this.videos.length-1) {
+            // Mostrar mensaje de alerta
+            alert('¡Has visto todos los videos! Gracias por participar.');
+
+            // Recargar la página
+            location.reload();
+          }
         } catch (error) {
           console.error("Error al enviar datos al servidor:", error);
         }
