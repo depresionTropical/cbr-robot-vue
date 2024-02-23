@@ -1,26 +1,159 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col">
+        <h1>Proyecto CBR Robot</h1>
+        <p>
+          Proyecto para el control robótico basado en razonamiento basado en
+          casos
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5">
+    <div class="row">
+      <!-- Contenedor del video -->
+      <div class="col-lg-8">
+        <!-- Agrega un :key dinámico al iframe -->
+        <div
+          :key="currentVideoIndex"
+          class="embed-responsive embed-responsive-21by9"
+        >
+          <iframe
+            :src="videoUrl"
+            frameborder="0"
+            allowfullscreen
+            class="embed-responsive-item"
+          ></iframe>
+        </div>
+      </div>
+      <!-- Columna para la descripción y el botón -->
+      <div class="col-lg-4 mt-3 mt-lg-0">
+        <div class="row">
+          <div class="col">
+            <!-- Alerta y cuadro de texto -->
+            <div class="alert fs-5" role="alert">
+              Observa el video a continuación y describe de manera sencilla en
+              el campo de texto las instrucciones que indicarías para que el
+              robot pueda llevar a cabo dicha acción
+            </div>
+            <textarea
+              v-model="descripcion"
+              placeholder="Descripción del video"
+              class="form-control"
+            ></textarea>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <!-- Botón para enviar -->
+            <button
+              @click="enviarVideo"
+              :disabled="!descripcion.trim()"
+              class="btn btn-primary w-100"
+            >
+              Enviar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
+
+<script>
+import axios from "axios";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      user_id: this.generateShortId(),
+      videos: [
+        "8LcQa0EZdGA?si=3EzUfCeFrxkWU3UB",
+        "GVM0wis_s4k?si=QW163N3gRQhW3jMJ",
+        "ozLj0fAHUrQ?si=EKCigZ8gaYwX9097",
+        "0bW356bMBLk?si=g2xdzMI39DKlwsPt",
+        "0msVUCTPIbM?si=FwqxSbSTMfXVZZ_h",
+        "AKHcLYFjCGo?si=eldYpEyEPndXnVh9",
+        "8LcQa0EZdGA?si=3EzUfCeFrxkWU3UB",
+      ],
+      currentVideoIndex: 0,
+      descripcion: "",
+    };
+  },
+  computed: {
+    videoUrl() {
+      return `https://www.youtube.com/embed/${
+        this.videos[this.currentVideoIndex]
+      }?t=${Date.now()}`;
+    },
+  },
+  methods: {
+    generateShortId() {
+      const characters = "0123456789";
+      let shortId = "";
+
+      for (let i = 0; i < 10; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        shortId += characters.charAt(randomIndex);
+      }
+
+      return shortId;
+    },
+    cambiarSiguienteVideo() {
+      this.currentVideoIndex =
+        (this.currentVideoIndex + 1) % this.videos.length;
+    },
+
+    async enviarVideo() {
+      // Verificar si la descripción está presente antes de enviar
+      if (this.descripcion.trim()) {
+        try {
+          console.log(
+            "Mensaje enviado: ",
+            this.user_id,
+            this.videos[this.currentVideoIndex],
+            this.descripcion
+          );
+          const response = await axios.post(
+            "https://backrobotcbr.onrender.com/crear-video-response/",
+            {
+              user_id: this.user_id,
+              video_name: this.videos[this.currentVideoIndex],
+              response: this.descripcion,
+            }
+          );
+
+          console.log("Respuesta del servidor:", response);
+
+          // Verificar la respuesta del servidor (puedes ajustar esto según la respuesta esperada)
+          if (response.status === 200) {
+            console.log("Datos enviados con éxito al servidor:", response.data);
+          } else {
+            console.error(
+              "Error en la respuesta del servidor:",
+              response.statusText
+            );
+          }
+
+          // Lógica para cambiar al siguiente video
+          this.cambiarSiguienteVideo();
+
+          // Limpiar la descripción después de enviar
+          this.descripcion = "";
+        } catch (error) {
+          console.error("Error al enviar datos al servidor:", error);
+        }
+      } else {
+        // Manejar el caso en el que la descripción está vacía
+        console.warn("La descripción no puede estar vacía");
+      }
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style> 
+
 </style>
