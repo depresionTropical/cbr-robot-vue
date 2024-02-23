@@ -13,17 +13,17 @@
   <div class="container my-5">
     <div class="row">
       <!-- Contenedor del video -->
-      <div class="col-lg-8">
+      <div class="col" style="height:315">
         <!-- Agrega un :key dinámico al iframe -->
         <div
           :key="currentVideoIndex"
-          class="embed-responsive embed-responsive-21by9"
+          
         >
-          <iframe
+          <iframe width="100%" height="500"
             :src="videoUrl"
             frameborder="0"
             allowfullscreen
-            class="embed-responsive-item"
+            
           ></iframe>
         </div>
       </div>
@@ -41,6 +41,9 @@
               v-model="descripcion"
               placeholder="Descripción del video"
               class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="8"
+              style="resize: none;"
             ></textarea>
           </div>
         </div>
