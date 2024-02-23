@@ -129,7 +129,7 @@ export default {
             alert("¡Has visto todos los videos! Gracias por participar.");
 
             // Recargar la página
-            location.reload();
+            this.$router.push({ path: '/' });
           }
         } catch (error) {
           console.error("Error al enviar datos al servidor:", error);
