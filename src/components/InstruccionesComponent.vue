@@ -4,7 +4,7 @@
     <h1 class="display-4 text-center">Instrucciones</h1>
     <form @submit.prevent="irAVideos" class="mt-4">
       <div class="row">
-        <div class="alert fs-5 col-md-6 mx-auto mb-3" role="alert">
+        <div class="alert fs-5 col-md-10 mx-auto mb-3" role="alert">
           <p>
             Observa los 6 videos a continuación y describe de manera sencilla en
             el campo de texto las instrucciones que indicarías para que el robot
@@ -30,14 +30,14 @@
 
           <p>Imágenes de referencia:</p>
           <div class="row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-5  col-md-4 mx-auto mb-3">
               <img
                 src="../assets/face_photo.png"
                 class="img-fluid"
                 alt="Foto de Face (Vista Frontal)"
               />
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-5  col-md-4 mx-auto mb-5">
               <img
                 src="../assets/look_up_photo.png"
                 class="img-fluid"
@@ -62,17 +62,19 @@
         <div class="fs-5 col-md-6 mx-auto mb-3">
           <!-- Matrícula -->
           <label for="matricula" class="form-label"
-            >Ingresa tu matrícula:</label
+            >Ingresa tu matrícula: </label
           >
           <input
             v-model="matricula"
             type="text"
             class="form-control"
             id="matricula"
-            placeholder="Matrícula"
+            placeholder="E24080710"
             required
+            pattern="E\d{2}08\d{4}"
           />
         </div>
+        
       </div>
       <button type="submit" class="btn btn-primary mx-auto d-block">
         Ir a Videos
