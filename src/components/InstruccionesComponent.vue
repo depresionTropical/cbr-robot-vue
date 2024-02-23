@@ -1,7 +1,7 @@
 <!-- Instrucciones.vue -->
 <template>
   <div class="container my-5">
-    <h1 class="display-4 text-center">Instrucciones</h1>
+    <h1 class="display-4 text-center fw-bold">Instrucciones</h1>
     <form @submit.prevent="irAVideos" class="mt-4">
       <div class="row">
         <div class="alert fs-5 col-md-10 mx-auto mb-3" role="alert">
