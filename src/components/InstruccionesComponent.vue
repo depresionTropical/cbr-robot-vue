@@ -72,7 +72,7 @@
             id="matricula"
             placeholder="E24080710"
             required
-            pattern="E\d{2}08\d{4}"
+            pattern="(?i)E\d{2}08\d{4}"
           />
         </div>
       </div>
