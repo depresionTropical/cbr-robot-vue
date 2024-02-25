@@ -69,7 +69,7 @@ export default {
         "AKHcLYFjCGo?si=eldYpEyEPndXnVh9",
         "8LcQa0EZdGA?si=3EzUfCeFrxkWU3UB",
       ],
-      currentVideoIndex: 0,
+      currentVideoIndex: 0, 
       descripcion: "",
     };
   },

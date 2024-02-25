@@ -6,11 +6,12 @@
       <div class="row">
         <div class="alert fs-5 col-md-10 mx-auto mb-3" role="alert">
           <p>
-            Observa los 6 videos a continuación y describe de manera sencilla en
-            el campo de texto las instrucciones que indicarías para que el robot
-            pueda llevar a cabo dicha acción. Al presionar el botón "Enviar",
-            pasarás automáticamente al siguiente video para proporcionar tu
-            siguiente conjunto de instrucciones.
+            Observa los 6 videos a continuación. Describe de que manera le
+            dirías al robot que realice la acción que se muestra en el video.
+          </p>
+          <p>
+            Al presionar el botón "Enviar", pasarás automáticamente al siguiente
+            video.
           </p>
 
           <p>Aquí tienes algunos consejos para tu descripción:</p>
@@ -30,14 +31,14 @@
 
           <p>Imágenes de referencia:</p>
           <div class="row">
-            <div class="col-md-5  col-md-4 mx-auto mb-3">
+            <div class="col-md-5 col-md-4 mx-auto mb-3">
               <img
                 src="../assets/face_photo.png"
                 class="img-fluid"
                 alt="Foto de Face (Vista Frontal)"
               />
             </div>
-            <div class="col-md-5  col-md-4 mx-auto mb-5">
+            <div class="col-md-5 col-md-4 mx-auto mb-5">
               <img
                 src="../assets/look_up_photo.png"
                 class="img-fluid"
@@ -62,8 +63,8 @@
         <div class="fs-5 col-md-6 mx-auto mb-3">
           <!-- Matrícula -->
           <label for="matricula" class="form-label"
-            >Ingresa tu matrícula: </label
-          >
+            >Ingresa tu matrícula:
+          </label>
           <input
             v-model="matricula"
             type="text"
@@ -74,7 +75,6 @@
             pattern="E\d{2}08\d{4}"
           />
         </div>
-        
       </div>
       <button type="submit" class="btn btn-primary mx-auto d-block">
         Ir a Videos
