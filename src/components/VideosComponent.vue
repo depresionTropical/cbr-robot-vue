@@ -57,10 +57,14 @@
 import axios from "axios";
 export default {
   created() {
-    // Acceder al parámetro de consulta
-    const matricula = this.$route.query.matricula;
-    console.log(matricula);
+    // Agregar un manejador de eventos para manejar la recarga de página
+    window.addEventListener('beforeunload', this.handleBeforeUnload);
   },
+  destroyed() {
+    // Remover el manejador de eventos al destruir el componente
+    window.removeEventListener('beforeunload', this.handleBeforeUnload);
+  },
+
   data() {
     return {
       matricule: this.$route.query.matricula,
@@ -85,7 +89,14 @@ export default {
     },
   },
   methods: {
-    
+    handleBeforeUnload(event) {
+      // Redirigir a la página raíz si la ruta actual es '/videos'
+      const currentPath = this.$route.path;
+      if (currentPath === '/videos') {
+        this.$router.push('/');
+        event.preventDefault();
+      }
+    },
     cambiarSiguienteVideo() {
       this.currentVideoIndex =
         (this.currentVideoIndex + 1) % this.videos.length;
