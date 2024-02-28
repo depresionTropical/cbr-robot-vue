@@ -29,13 +29,15 @@ router.beforeEach((to, from, next) => {
 window.addEventListener('beforeunload', (event) => {
   // Obtener la ruta actual
   const currentPath = window.location.pathname;
+  const currentSearch = window.location.search;
 
-  // Redirigir a la página raíz si la ruta actual es '/videos'
-  if (currentPath === '/videos') {
+  // Redirigir a la página raíz solo si la ruta actual es '/videos' sin parámetros de consulta
+  if (currentPath === '/videos' && currentSearch === '') {
     window.location.href = '/';
     event.preventDefault();
   }
 });
+
 
 const app = createApp(App);
 app.use(router);
