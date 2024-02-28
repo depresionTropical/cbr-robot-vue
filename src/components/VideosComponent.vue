@@ -56,7 +56,11 @@
 <script>
 import axios from "axios";
 export default {
-  
+  created() {
+    // Acceder al parámetro de consulta
+    const matricula = this.$route.query.matricula;
+    console.log(matricula);
+  },
   data() {
     return {
       matricule: this.$route.query.matricula,
