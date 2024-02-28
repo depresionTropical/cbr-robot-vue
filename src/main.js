@@ -25,6 +25,18 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+// Agregar un manejador de eventos para manejar la recarga de página
+window.addEventListener('beforeunload', (event) => {
+  // Obtener la ruta actual
+  const currentPath = window.location.pathname;
+
+  // Redirigir a la página raíz si la ruta actual es '/videos'
+  if (currentPath === '/videos') {
+    window.location.href = '/';
+    event.preventDefault();
+  }
+});
+
 const app = createApp(App);
 app.use(router);
 app.mount('#app');
