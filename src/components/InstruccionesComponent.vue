@@ -14,18 +14,39 @@
             video.
           </p>
 
-          <p>Aquí tienes algunos consejos para tu descripción:</p>
-          <ul>
-            <li>Describe cada paso de manera clara y concisa.</li>
-            <li>
-              Utiliza un lenguaje sencillo para que las instrucciones sean
-              comprensibles.
+          <p>Aquí tienes algunos consejos para tu descripción.</p>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span class="fw-bold">Claridad y Concisión:</span> Asegúrate de
+              describir cada paso de manera clara y concisa. Utiliza un lenguaje
+              común.
             </li>
-            <li>Enfócate en acciones específicas que el robot realiza.</li>
-            <li>
-              Considera la orientación del robot: hay dos imágenes a
-              continuación, una vista desde enfrente y otra desde una vista
-              aérea.
+            <li class="list-group-item">
+              <span class="fw-bold">Acciones Específicas:</span> Enfócate en
+              acciones específicas que el robot debe llevar a cabo. Detalla las
+              acciones de manera precisa para garantizar la ejecución correcta.
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Orientación del Robot:</span> Considera la
+              orientación del robot: hay dos imágenes a continuación, una vista
+              desde enfrente y otra desde una vista aérea (vista del video).
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Considera la orientación del robot:</span>
+              hay dos imágenes a continuación, una vista desde enfrente y otra
+              desde una vista aérea.
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Reproducción de Videos:</span> Aunque puedes
+              reproducir los videos tantas veces como desees, ten en cuenta que
+              la instrucción se considerará como si la hubieras visto el video
+              una vez.
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Posibles Problemas Técnicos:</span> Si
+              experimentas problemas, ten paciencia y reinicia la página en
+              lugar de hacer clic varias veces en el botón 'Enviar'. Esto
+              ayudará a evitar posibles contratiempos.
             </li>
           </ul>
 
@@ -46,17 +67,6 @@
               />
             </div>
           </div>
-
-          <p>
-            Tu descripción debe considerar la orientación del robot según estas
-            imágenes.
-          </p>
-
-          <p>
-            Recuerda que puedes reproducir los videos cuantas veces quieras,
-            pero la instrucción se considera como si se la hubieras dado una
-            vez.
-          </p>
         </div>
       </div>
       <div class="row">
